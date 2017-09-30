@@ -4,6 +4,7 @@ services:
     postgis:
       build: .
       tty: true
+      network_mode: bridge
       hostname: postgis
       container_name: postgis
       ports:
