@@ -1,0 +1,15 @@
+version: "2"
+
+services:
+    postgis:
+      build: .
+      tty: true
+      hostname: postgis
+      container_name: postgis
+      ports:
+        - "127.0.0.1:30080:5432"
+      volumes: 
+         - postgis-volume:/usr/local/pgsql/data
+
+volumes:
+  postgis-volume:
