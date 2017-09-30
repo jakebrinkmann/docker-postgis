@@ -35,7 +35,7 @@ internal PostGIS `Geom` spatial index type
 
 Query the data using GeoJSON polygons:
 ```bash
-cat data/USA.geojson | docker run -i --rm --link="postgis" postgis-points intersect
+cat data/IL.geojson | docker run -i --rm --link="postgis" postgis-points intersect
 ```
 
 ## References
@@ -44,4 +44,4 @@ cat data/USA.geojson | docker run -i --rm --link="postgis" postgis-points inters
 * https://github.com/appropriate/docker-postgis
 * https://live.osgeo.org/en/quickstart/postgis_quickstart.html
 * https://github.com/yohanboniface/python-postgis
-
+* https://github.com/johan/world.geo.json
