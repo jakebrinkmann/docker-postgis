@@ -1,4 +1,5 @@
 import sys
+import json
 
 import api.storage as storage
 
@@ -15,5 +16,6 @@ def ingest(data=None):
 
 def intersect(cols=('Name',), geojson=None):
     if geojson is None:
-        geojson = sys.stdin.read()
-    return storage.intersect(cols, geojson)
+        geojson = json.loads(sys.stdin.read())['features'][0]['geometry']
+    results = storage.intersect(cols, json.dumps(geojson))
+    print('\n'.join(results))

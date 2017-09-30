@@ -36,4 +36,7 @@ def insert(conn, table, columns, values, dups=True):
 def geojson(conn, table, columns, geojson):
     sql = ('SELECT (ST_X(geom), ST_Y(geom), ' + ', '.join(columns) + ') FROM ' + table + ' WHERE ' +
            'ST_Within(geom, ST_SetSRID(ST_GeomFromGeoJSON(%s), 4326))')
-    return fetch(conn, sql, (geojson,))
+    return __format__(fetch(conn, sql, (geojson,)))
+
+def __format__(results):
+    return [str(i) for x in list(results) for i in x]
