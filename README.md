@@ -25,6 +25,11 @@ Ingest some point data into the database:
 cat data/targets.dat | docker run -i --rm --link="postgis" postgis-points ingest
 ```
 
+To view the data ingested: 
+```bash
+docker exec -it postgis psql -U postgis -d postgis -c "select * from mypointdata;"
+```
+
 **NOTE**: There are stored procedures which convert Latitude/Longitude into the 
 internal PostGIS `Geom` spatial index type
 
