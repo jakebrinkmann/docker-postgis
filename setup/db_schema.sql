@@ -7,11 +7,11 @@ CREATE EXTENSION IF NOT EXISTS postgis;
 -- \connect demo
 
 create table MYPOINTDATA (id serial primary key,
-				          NAME varchar(50),
-				          LONGITUDE decimal(7,4),
-				          LATITUDE decimal(7,4),
+                          NAME varchar(50),
+                          LONGITUDE decimal(7,4),
+                          LATITUDE decimal(7,4),
                           geom geometry(point, 4326),
-					      modified timestamp without time zone);
+                          modified timestamp without time zone);
 
 CREATE OR REPLACE Function update_geom() RETURNS TRIGGER AS $$
     BEGIN 
